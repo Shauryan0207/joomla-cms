@@ -121,7 +121,7 @@ class ArticlesPopularHelper
             $items      = [];
             $itemParams = new \stdClass();
 
-            $itemParams->authorised = Access::getAuthorisedViewLevels($app->getIdentity()->id);
+            $itemParams->authorised = Access::getAuthorisedViewLevels($app->getIdentity() ? $app->getIdentity()->id : 0);
             $itemParams->access     = $access;
 
             foreach ($articlesModel->getItems() as $item) {
